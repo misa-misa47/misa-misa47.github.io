@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b, #ff904b, #ffcc33);
+    background-size: 300% 300%;
+    animation: gradientMove 6s infinite linear alternate;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}   
+
+.task-container {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    box-shadow: 
+        inset 2px 2px 4px rgba(255, 255, 255, 0.4), /* Внутреннее свечение */
+        6px 6px 12px rgba(0, 0, 0, 0.1), /* Внешняя тень */
+        -6px -6px 12px rgba(255, 255, 255, 0.2); /* Контрастный эффект */
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    perspective: 1200px; /* Глубина 3D-эффекта */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.task {
+    font-family: 'Tektur', sans-serif; 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: block;
+    transform-origin: center;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 
+        1px 1px 0px #aaa, 
+        2px 2px 0px #999, 
+        3px 3px 0px #888, 
+        4px 4px 3px rgba(0, 0, 0, 0.5); /* Эффект 3D */
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    background: linear-gradient(145deg, #ffa94d, #ff7f24); /* Градиент для объемности */
+
+    box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.3), /* Внутренняя подсветка */
+    4px 4px 8px rgba(0, 0, 0, 0.4);
+    transform-style: preserve-3d;
+}
+
+.task::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 80%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-50%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Новый стиль кнопки с добавлением */
+.btn-style { 
+    --btn-color: #4e4e4e;
+    --btn-hover-color: #ec2929;
+    background: transparent;
+    border: 2px solid var(--btn-color);
+    color: var(--btn-color);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, background 0.3s ease;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Эффект при наведении для кнопки */
+.btn-style:hover {
+    transform: translateY(-0.25em);
+    box-shadow: 0 0 0.5em 0em var(--btn-hover-color);
+    border-color: var(--btn-hover-color);
+    color: var(--btn-hover-color);
+}
+
+/* Наведение на задачу */
+.task:hover {
+    transform: translateY(-12px) rotateX(12deg) rotateY(5deg) scale(1.08);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.15));
+    text-shadow: 
+        2px 2px 0px #bbb, 
+        3px 3px 0px #aaa, 
+        4px 4px 0px #999, 
+        5px 5px 5px rgba(0, 0, 0, 0.6);
+    transform: translateY(-12px) rotateX(12deg) rotateY(5deg) scale(1.08);
+}
+
+/* При наведении на задачу появляется эффект подчеркивания */
+.task:hover::before {
+    opacity: 1;
+}
+
+/* Динамика для соседних кнопок */
+.task-container:hover .task:not(:hover) {
+    transform: translateY(-6px) rotateX(5deg) rotateY(2deg) scale(1.03);
+}
+
+/* клик */
+.task:active {
+    box-shadow: 
+        inset 4px 4px 6px rgba(0, 0, 0, 0.4), /* Глубокая вдавленная тень */
+        1px 1px 2px rgba(255, 255, 255, 0.3); 
+    transform: translateY(2px); /* Легкое "вдавливание" при клике */
+}
