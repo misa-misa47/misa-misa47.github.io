@@ -3,14 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 1</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Галерея</title>
+    <link rel="stylesheet" href="static/styles/gallery.css">
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="task-container">
-        <h1>Задание 1</h1>
-        <p>Тут будет описание задания.</p>
-        <a href="index.html" class="task">Назад</a>
+    <ul>
+        <li style="position: absolute; top: 120px; left: 40px;">
+          <div class="image"><img src="static/images/anime1.jpg" style="width: 400px; height: 400px;"></div>
+          <div class="image-text">текст</div>
+
+          <div class="shadow"></div>
+        </li>
+        <li style="position: absolute; top: 120px; left: 520px;">
+            <div class="image"><img src="static/images/anime2.jpg" style="width: 400px; height: 400px;"></div>
+            <div class="image-text">чо то там-то</div>
+
+            <div class="shadow"></div>
+          </li>
+        <li style="position: absolute; top: 120px; left: 990px;">
+            <div class="image"><img src="static/images/anime2.jpg" style="width: 400px; height: 400px;"></div>
+            <div class="image-text">venom</div>
+            <div class="shadow"></div>
+        </li>
+      </ul>
+      <div class="task-container" style="position: absolute; top: 700px; left: 60px" >
+        <a href="index.html" class="task btn-style">назад</a>
     </div>
 </body>
 </html>
